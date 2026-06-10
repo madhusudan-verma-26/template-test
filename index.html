@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="slate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE FORGE V3 // LIFE OPERATING SYSTEM</title>
+    <link rel="stylesheet" href="forge.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="clean-workspace animated-pattern-bg">
+
+    <div id="toast-alerts-anchor-host" class="global-toast-notification-layer"></div>
+
+    <div class="app-container">
+        
+        <aside class="workspace-sidebar">
+            <div class="sidebar-brand-block">
+                <div class="brand-avatar" id="theme-avatar-icon">👁️</div>
+                <div class="brand-text">
+                    <h1 id="user-display-name">OPERATOR</h1>
+                    <span class="user-tier-badge" id="sidebar-rank-badge">⚪ SYSTEM LOADING</span>
+                </div>
+            </div>
+
+            <div class="theme-switcher-dock">
+                <span class="dock-title">// SYSTEM VISUAL MODE</span>
+                <div class="theme-btn-group">
+                    <button type="button" class="theme-toggle-btn active" data-set-theme="slate" title="Slate Minimalist">👁️</button>
+                    <button type="button" class="theme-toggle-btn" data-set-theme="mahoraga" title="Mahoraga Adaptation">🎡</button>
+                    <button type="button" class="theme-toggle-btn" data-set-theme="crimson" title="Shinomiya Crimson">🩸</button>
+                </div>
+            </div>
+
+            <div class="sidebar-telemetry-widget">
+                <div class="tel-row">
+                    <span class="tel-label">SYSTEM TIME</span>
+                    <span class="tel-value neon-time-text" id="nav-clock">00:00:00</span>
+                </div>
+                <div class="tel-row">
+                    <span class="tel-label">CURRENT ORBIT</span>
+                    <span class="tel-value" id="nav-date">01.01.2026</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-navigation">
+                <button type="button" class="nav-anchor active" data-panel="panel-dashboard">
+                    <span class="anchor-icon">📊</span> Command Core
+                </button>
+                <button type="button" class="nav-anchor" data-panel="panel-tasks">
+                    <span class="anchor-icon">⚔️</span> Task Matrix
+                </button>
+                <button type="button" class="nav-anchor" data-panel="panel-logs">
+                    <span class="anchor-icon">📜</span> Archive Ledger
+                </button>
+                <button type="button" class="nav-anchor" data-panel="panel-settings">
+                    <span class="anchor-icon">⚙️</span> Settings Config
+                </button>
+            </nav>
+
+            <div class="sidebar-footer-signature">FORGE_OS_V3 // ONLINE</div>
+        </aside>
+
+        <main class="workspace-viewport">
+
+            <section class="control-panel active" id="panel-dashboard">
+                <div class="view-header-block">
+                    <h2>System Overview Terminal</h2>
+                    <p>Real-time lifecycle analytics and consistency indexes.</p>
+                </div>
+
+                <div class="metrics-row-deck">
+                    <div class="summary-metric-card interact-pulse">
+                        <span class="m-card-label">CONSISTENCY INDEX</span>
+                        <div class="m-card-value-group">
+                            <span class="m-card-value" id="dash-consistency-score">100%</span>
+                            <span class="m-card-trend trend-positive">▲ ACTIVE</span>
+                        </div>
+                        <div class="m-card-progress-track">
+                            <div class="m-card-progress-fill" id="consistency-bar" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="summary-metric-card interact-pulse">
+                        <span class="m-card-label">AGGREGATE WORKLOAD</span>
+                        <div class="m-card-value-group">
+                            <span class="m-card-value" id="dash-total-hours">0.0h</span>
+                        </div>
+                        <span class="m-card-subtext">Sum total energy expenditure logs</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-split-layout">
+                    <div class="layout-main-column">
+                        <div class="workspace-card patterning-card-surface">
+                            <div class="card-header-row">
+                                <h3>Orbital Consistency Calendar Grid</h3>
+                                <span class="calendar-month-indicator">CYCLE REGISTRY</span>
+                            </div>
+                            <div class="calendar-matrix-grid" id="dashboard-calendar-frame"></div>
+                            <div class="calendar-legend-bar">
+                                <div class="legend-node"><span class="legend-dot perfect"></span> Optimal Sync</div>
+                                <div class="legend-node"><span class="legend-dot moderate"></span> Drift Warning</div>
+                                <div class="legend-node"><span class="legend-dot critical"></span> Critical Deficit</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layout-side-column">
+                        <div class="workspace-card">
+                            <h3>Quick Logging Module</h3>
+                            <p class="section-context-text">Inject an immediate completed execution log.</p>
+                            <form class="standard-config-form" id="form-dashboard-quick-log">
+                                <div class="form-field-wrapper">
+                                    <label>Task Description</label>
+                                    <input type="text" id="quick-log-name" placeholder="e.g., Optimized SQL queries" required>
+                                </div>
+                                <div class="form-field-wrapper">
+                                    <label>Operational Sector</label>
+                                    <select id="quick-log-sector">
+                                        <option value="WORK">WORK // TECH DEVELOPMENT</option>
+                                        <option value="LIFE">LIFE // STRATEGY & HEALTH</option>
+                                        <option value="STUDY">STUDY // BCA SYLLABUS CORE</option>
+                                    </select>
+                                </div>
+                                <div class="form-field-wrapper">
+                                    <label>Duration Metric (Hours)</label>
+                                    <input type="number" id="quick-log-duration" step="0.5" min="0.5" max="24" placeholder="1.5" required>
+                                </div>
+                                <button type="submit" class="prime-action-btn ripple-btn">Commit Entry To Ledger</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="control-panel" id="panel-tasks">
+                <div class="view-header-block">
+                    <h2>Task Matrix Terminal</h2>
+                    <p>Add, filter, execute, and eliminate active objectives programmatically.</p>
+                </div>
+
+                <div class="workspace-card patterning-card-surface">
+                    <div class="card-header-row">
+                        <h3>Active Execution Pipeline</h3>
+                        <div class="table-filter-strip" id="task-matrix-filters">
+                            <button type="button" class="filter-toggle active" data-task-filter="all">All Targets</button>
+                            <button type="button" class="filter-toggle" data-task-filter="pending">Pending</button>
+                            <button type="button" class="filter-toggle" data-task-filter="done">Completed</button>
+                        </div>
+                    </div>
+
+                    <form class="inline-quick-form" id="form-matrix-task-injector">
+                        <input type="text" id="matrix-task-text" placeholder="Specify next structural objective..." required>
+                        <select id="matrix-task-priority">
+                            <option value="high">Priority // High</option>
+                            <option value="medium" selected>Priority // Medium</option>
+                            <option value="low">Priority // Low</option>
+                        </select>
+                        <button type="submit" class="prime-action-btn ripple-btn">Inject Target</button>
+                    </form>
+
+                    <ul class="managed-goals-list" id="matrix-todo-items-holder">
+                        </ul>
+                    <div class="empty-state-text" id="matrix-empty-placeholder" style="display: none;">
+                        No objectives found. Calibrate the injector above to deploy tasks.
+                    </div>
+                </div>
+            </section>
+
+            <section class="control-panel" id="panel-logs">
+                <div class="view-header-block">
+                    <h2>Archive Logs Ledger</h2>
+                    <p>Historical system transactional log storage tracking entries.</p>
+                </div>
+
+                <div class="workspace-card">
+                    <div class="card-header-row">
+                        <h3>Historical Log Entries</h3>
+                        <div class="table-filter-strip">
+                            <button type="button" class="filter-toggle active" data-filter="all">All Entries</button>
+                            <button type="button" class="filter-toggle" data-filter="completed">Completions</button>
+                            <button type="button" class="filter-toggle" data-filter="denied">Denied Logs</button>
+                        </div>
+                    </div>
+
+                    <div class="analytics-chart-viewport-container">
+                        <span class="m-card-label">// LAST 7 EXPENED LOG DURATIONS</span>
+                        <div class="analytics-bar-chart" id="historical-trends-bar-frame"></div>
+                    </div>
+
+                    <div class="table-scroll-housing">
+                        <table class="registry-data-table">
+                            <thead>
+                                <tr>
+                                    <th>TIMESTAMP INDICATOR</th>
+                                    <th>SECTOR</th>
+                                    <th>DESCRIPTION</th>
+                                    <th>DURATION</th>
+                                    <th>EVALUATION STATUS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-historical-logs">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="control-panel" id="panel-settings">
+                <div class="view-header-block">
+                    <h2>Global Environment Configuration</h2>
+                    <p>Recalibrate operator identifiers or scrub backend cache indices.</p>
+                </div>
+
+                <div class="settings-grid-layout">
+                    <div class="workspace-card">
+                        <h3>Identity Overhaul Override</h3>
+                        <form class="standard-config-form" id="form-update-profile-identity">
+                            <div class="form-field-wrapper">
+                                <label>Modify Core Operator Username Handlers</label>
+                                <input type="text" id="config-user-name" placeholder="Input new handle...">
+                            </div>
+                            <button type="submit" class="prime-action-btn ripple-btn">Synchronize Identity Parameters</button>
+                        </form>
+                    </div>
+
+                    <div class="workspace-card">
+                        <h3>10-Tier Evolution Hierarchy Matrix</h3>
+                        <p class="section-context-text">Track your unlocked clearance levels based on task completions.</p>
+                        <div class="rank-index-list">
+                            <div class="rank-tier-node" id="rank-t1"><div class="rank-sym">⚪</div><div class="rank-meta"><h5>Tier I // Novice</h5><p>Baseline system allocation (0 Tasks)</p></div></div>
+                            <div class="rank-tier-node" id="rank-t2"><div class="rank-sym">🔵</div><div class="rank-meta"><h5>Tier II // Initiate</h5><p>Authentication level up (2 Tasks)</p></div></div>
+                            <div class="rank-tier-node" id="rank-t3"><div class="rank-sym">✳️</div><div class="rank-meta"><h5>Tier III // Practitioner</h5><p>Verified operational flow (5 Tasks)</p></div></div>
+                            <div class="rank-tier-node" id="rank-t4"><div class="rank-sym">🔶</div><div class="rank-meta"><h5>Tier IV // Specialist</h5><p>Advanced pipeline logic (10 Tasks)</p></div></div>
+                            <div class="rank-tier-node" id="rank-t5"><div class="rank-sym">⚡</div><div class="rank-meta"><h5>Tier V // Vanguard</h5><p>Dominator layout clearance (17 Tasks)</p></div></div>
+                            <div class="rank-tier-node" id="rank-t6"><div class="rank-sym">🛡️</div><div class="rank-meta"><h5>Tier VI // Strategist</h5><p>Tactical data management (25 Tasks)</p></div></div>
+                            <div class="rank-tier-node" id="rank-t7"><div class="rank-sym">🌀</div><div class="rank-meta"><h5>Tier VII // Commander</h5><p>Supreme execution flow (35 Tasks)</p></div></div>
+                            <div class="rank-tier-node" id="rank-t8"><div class="rank-sym">🔮</div><div class="rank-meta"><h5>Tier VIII // Sovereign</h5><p>Reality warping execution (48 Tasks)</p></div></div>
+                            <div class="rank-tier-node" id="rank-t9"><div class="rank-sym">👑</div><div class="rank-meta"><h5>Tier IX // Overlord</h5><p>Unmatched system conqueror (62 Tasks)</p></div></div>
+                            <div class="rank-tier-node" id="rank-t10"><div class="rank-sym">🌌</div><div class="rank-meta"><h5>Tier X // Apex Overseer</h5><p>Complete workspace divinity reached (80 Tasks)</p></div></div>
+                        </div>
+                    </div>
+
+                    <div class="workspace-card">
+                        <h3>Evolution Milestone Shelf</h3>
+                        <div class="achievements-badge-grid">
+                            <div class="achievement-badge-card locked" id="ach-first-log">
+                                <div class="badge-icon">🚀</div>
+                                <div class="badge-title">System Ignition</div>
+                                <div class="badge-requirement">Log any execution event entry inside the ledger database.</div>
+                            </div>
+                            <div class="achievement-badge-card locked" id="ach-perfect-sync">
+                                <div class="badge-icon">🎯</div>
+                                <div class="badge-title">Perfect Sync</div>
+                                <div class="badge-requirement">Maintain a flawless 100% operational consistency record index.</div>
+                            </div>
+                            <div class="achievement-badge-card locked" id="ach-goal-crusher">
+                                <div class="badge-icon">🌋</div>
+                                <div class="badge-title">Domain Expansion</div>
+                                <div class="badge-requirement">Maintain 5 or more active concurrent structural objectives.</div>
+                            </div>
+                            <div class="achievement-badge-card locked" id="ach-overtime-shield">
+                                <div class="badge-icon">🔱</div>
+                                <div class="badge-title">Apex Adaptation</div>
+                                <div class="badge-requirement">Commit a single grueling workload block lasting 10+ hours.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="workspace-card">
+                        <span class="warning-label">☠️ DESTH ZONE DATA OPERATIONS</span>
+                        <h3>Infrastructure Hard Reset</h3>
+                        <p class="section-context-text">Instantly wipe localized storage tables and restore system blueprints back to initialization setups.</p>
+                        <button type="button" class="danger-action-btn" id="btn-trigger-nuke-purge">Instigate Full Database Purge</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="floating-ai-agent-wrapper">
+            <div class="ai-diagnostic-drawer-card hidden" id="ai-diagnostics-drawer-overlay">
+                <div class="drawer-header-bar">
+                    <div class="header-title-meta">
+                        <h4>AI DIAGNOSTIC SUPERVISION FEED</h4>
+                        <div class="live-pulse-indicator">SYS_SUPER_EGO V3</div>
+                    </div>
+                    <button type="button" class="drawer-close-trigger" id="btn-close-ai-drawer">×</button>
+                </div>
+                <div class="drawer-scroll-body-content">
+                    <div class="drawer-telemetry-grid">
+                        <div class="d-tel-node">
+                            <span class="label">COMPLIANCE STATE</span>
+                            <span class="value text-green" id="ai-diag-compliance-lbl">STABLE</span>
+                        </div>
+                        <div class="d-tel-node">
+                            <span class="label">DRIFT VALUE MEASURE</span>
+                            <span class="value" id="ai-diag-drift-lbl">0.0%</span>
+                        </div>
+                    </div>
+                    <div class="ai-feedback-narrative-block" id="ai-dynamic-narrative-output-feed">
+                        </div>
+                </div>
+            </div>
+            <button type="button" class="ai-fab-trigger" id="btn-ai-diagnostic-trigger">
+                <span class="ai-fab-spark">✨</span> RUN ANALYSIS
+            </button>
+        </div>
+
+    </div>
+
+    <script src="forge.js"></script>
+</body>
+</html>
